@@ -7,14 +7,14 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
-public class dBDAO implements AutoCloseable {
+public class DBDAO implements AutoCloseable {
 
     private static final String GET_RESULT_BY_ID_TEMPLATE = "select * from dbwithsearchresult where id = ?";
-    private static final String INSERT_INTO_DB_TEMPLATE = "insert into dbwithsearchresult(id, code, number, filenames, error) values (seq_dbresult.nextval, ?, ?, ?)";
+    private static final String INSERT_INTO_DB_TEMPLATE = "insert into dbwithsearchresult(code, number, filenames, error) values (?, ?, ?, ?)";
     private Connection connection;
 
-    public dBDAO() throws IOException, SQLException {
-//        Class.forName("org.postgresql.Driver");
+    public DBDAO() throws IOException, SQLException {
+
         Properties properties = new Properties();
         properties.load(new FileReader("jdbc.properties"));
         String url = properties.getProperty("url");
@@ -24,7 +24,7 @@ public class dBDAO implements AutoCloseable {
     }
 
 
-    public Result getResultByNumber (int id) throws SQLException {
+    public Result getResultByID (int id) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(GET_RESULT_BY_ID_TEMPLATE)) {
             statement.setInt(1, id);
             try (ResultSet r = statement.executeQuery()) {

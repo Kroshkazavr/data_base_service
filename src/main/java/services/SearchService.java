@@ -1,20 +1,25 @@
 package services;
 
+import dataBase.DBDAO;
 import entity.Result;
 
 import java.io.*;
+import java.sql.SQLException;
 
 public class SearchService {
     private Result result = new Result();
 
-    public Result findNumber(int number, File dir) {
+    public Result findNumber(int number, File dir) throws SQLException, IOException {
         File[] files = dir.listFiles();
         for (File i : files) {
             if (searchInFile(number, i)) {
                 result.setFileNames(i.getName());
             }
         }
-        return checkResultFields(result);
+        result = checkResultFields(result);
+        DBDAO dao = new DBDAO();
+        dao.saveResult(result, number);
+        return result;
     }
 
     private Result checkResultFields(Result result) {

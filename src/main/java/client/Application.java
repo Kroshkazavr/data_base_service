@@ -1,7 +1,5 @@
 package client;
 
-import dataBase.dBDAO;
-import entity.Result;
 import services.FileGenerator;
 import services.SearchService;
 
@@ -18,17 +16,14 @@ public class Application {
         FileGenerator fg = new FileGenerator();
         fg.checkGeneratorRun();
 
-        //searchService
+        //searchService + dBsaving
         SearchService ss = new SearchService();
         Scanner in = new Scanner(System.in);
         System.out.println("Введите Integer число для поиска.");
         int number = Integer.parseInt(in.nextLine());
-        Result result = ss.findNumber(number, fg.getDir());
-        System.out.println(result);
+        System.out.println(ss.findNumber(number, fg.getDir()));
 
-        //DB
-        dBDAO dao = new dBDAO();
-        dao.saveResult(result, number);
+
     }
 }
 
