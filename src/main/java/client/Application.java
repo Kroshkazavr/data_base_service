@@ -1,7 +1,9 @@
+package client;
+
 import dataBase.dBDAO;
-import fileGenerator.FileGenerator;
-import searchService.Result;
-import searchService.SearchService;
+import entity.Result;
+import services.FileGenerator;
+import services.SearchService;
 
 import java.io.IOException;
 import java.sql.SQLException;

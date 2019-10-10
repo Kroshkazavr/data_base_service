@@ -1,6 +1,6 @@
 package dataBase;
 
-import searchService.Result;
+import entity.Result;
 
 import java.io.FileReader;
 import java.io.IOException;

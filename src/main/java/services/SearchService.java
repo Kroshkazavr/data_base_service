@@ -1,4 +1,6 @@
-package searchService;
+package services;
+
+import entity.Result;
 
 import java.io.*;
 
