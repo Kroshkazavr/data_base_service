@@ -21,9 +21,7 @@ public class Application {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите Integer число для поиска.");
         int number = Integer.parseInt(in.nextLine());
-        System.out.println(ss.findNumber(number, fg.getDir()));
-
-
+        ss.findNumber(number, fg.getDir());
     }
 }
 

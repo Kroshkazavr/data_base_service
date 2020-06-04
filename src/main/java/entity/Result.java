@@ -3,10 +3,13 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс для объекта, хранящего результаты поиска числа.
+ */
 public class Result {
     private String code;
     private String error;
-    private List <String> fileNames = new ArrayList<>();
+    private List<String> fileNames = new ArrayList<>();
 
     public String getCode() {
         return code;
@@ -28,7 +31,9 @@ public class Result {
         return fileNames;
     }
 
-
+    public void setFileNames(String fileName) {
+        this.fileNames.add(fileName);
+    }
 
     @Override
     public String toString() {
@@ -37,9 +42,5 @@ public class Result {
                 ", error='" + error + '\'' +
                 ", fileNames=" + fileNames +
                 '}';
-    }
-
-    public void setFileNames(String fileName) {
-            this.fileNames.add(fileName);
     }
 }
