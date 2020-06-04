@@ -40,13 +40,13 @@ public class DBDAO implements AutoCloseable {
         return null;
     }
 
-    public int saveResult(Result result, int number) throws SQLException {
+    public void saveResult(Result result, int number) throws SQLException {
         try(PreparedStatement statement = connection.prepareStatement(INSERT_INTO_DB_TEMPLATE)) {
             statement.setString(1, result.getCode());
             statement.setInt(2, number);
             statement.setString(3, result.getFileNames().toString());
             statement.setString(4, result.getError());
-            return statement.executeUpdate();
+            statement.executeUpdate();
         }
     }
 

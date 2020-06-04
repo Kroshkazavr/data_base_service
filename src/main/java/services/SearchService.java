@@ -16,20 +16,20 @@ public class SearchService {
                 result.setFileNames(i.getName());
             }
         }
-        result = checkResultFields(result);
+        checkResultFields(result);
         DBDAO dao = new DBDAO();
         dao.saveResult(result, number);
+        System.out.println("Поиск заверщен, результат занесен в базу данных.");
         return result;
     }
 
-    private Result checkResultFields(Result result) {
+    private void checkResultFields(Result result) {
         if (result.getCode() == null && result.getFileNames().isEmpty()) {
             result.setCode("01.Result.NotFound");
         }
         if (result.getError() != null) {
             result.setCode("02.Result.Error");
         }
-        return result;
     }
 
     private boolean searchInFile(int number, File file) {
