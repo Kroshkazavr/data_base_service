@@ -1,11 +1,10 @@
 # test_for_junior
-Java 1.8 + JDBC + PostgreSQL
+Java 1.8 application containing the Result findNumber (Integer number) method,  
+which searches the given number in 20 large text files of different compositions (each more than 1 GB).  
+Files consist only of numbers, which are separated by a comma.  
+The result writes to the database, the method returns a Result object.
 
-Приложение на Java 1.8, содержащее в себе метод Result findNumber(Integer number), ищущий в 20 разных по составу больших текстовых файлах
-(каждый порядка 1 гб) полученное на вход число n. Файлы состоят только из чисел, которые разделены между собой запятой. 
-Результат записывается в БД, метод возвращает объект Result.
-
-Скрипт для создания БД:
+Database creation script:
 create table dbwithsearchresult (
 id serial,
     code varchar(50),
@@ -14,4 +13,4 @@ id serial,
     error varchar(100),
     primary key (id));
 
-В приложение добавлено логгирование, оформлены Javadoc, реализован метод генерации текстовых файлов для поиска n.
+Implemented a method for generating 20 text files for searching.
