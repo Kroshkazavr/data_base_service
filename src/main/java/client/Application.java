@@ -19,7 +19,7 @@ public class Application {
         //searchService + dBsaving
         SearchService ss = new SearchService();
         Scanner in = new Scanner(System.in);
-        System.out.println("Введите Integer число для поиска.");
+        System.out.println("Please enter an Integer number to search in files.");
         int number = Integer.parseInt(in.nextLine());
         ss.findNumber(number, fg.getDir());
     }

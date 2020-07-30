@@ -19,7 +19,7 @@ public class SearchService {
         checkResultFields(result);
         DBDAO dao = new DBDAO();
         dao.saveResult(result, number);
-        System.out.println("Поиск заверщен, результат занесен в базу данных.");
+        System.out.println("The search is over, the result is saved in the database.");
         return result;
     }
 

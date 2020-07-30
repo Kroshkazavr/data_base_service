@@ -7,23 +7,17 @@ import java.io.OutputStream;
 import java.util.Random;
 import java.util.Scanner;
 
-//todo для логгера
 
+/**
+ * Method for generating a specified number of files with a volume more or equal 1 GB.
+ */
 public class FileGenerator {
 
     private final static int MAX_INTEGER = 2147483647;
-    private final static int CIRCLE_COUNT = 10000;//1073741824/10; //todo гиг поделить на размер инт в байт
+    private final static int NUMBERS_IN_FILE = 1073741824/10;
     private int howManyFiles = 20;
     private String fileName = "text";
     private File dir = new File("Demo");
-
-    public static int getMaxInteger() {
-        return MAX_INTEGER;
-    }
-
-    public static int getCircleCount() {
-        return CIRCLE_COUNT;
-    }
 
     public int getHowManyFiles() {
         return howManyFiles;
@@ -41,17 +35,18 @@ public class FileGenerator {
         this.fileName = fileName;
     }
 
+    // todo сначала логгирование, затем javadoc
     private void fileGeneratorRun() throws IOException {
-        System.out.println("Добро пожаловать в генератор текстовых файлов.");
+        System.out.println("Welcome to the text file generator.");
         dir.mkdir();
         for (int i = 0; i < howManyFiles; i++) {
             File thisFile = createTheFile(fileName, i);
             OutputStream os = new FileOutputStream(thisFile);
-            for (int j = 0; j <= CIRCLE_COUNT; j++) {
+            for (int j = 0; j <= NUMBERS_IN_FILE; j++) {
                 fullTheFile(os);
             }
             os.close();
-            System.out.println("Записали кое-что в файл " + thisFile.getName() + ".");
+            System.out.println("Something written to file " + thisFile.getName() + ".");
         }
     }
 
@@ -71,19 +66,18 @@ public class FileGenerator {
         return dir;
     }
 
-    public boolean checkGeneratorRun() throws IOException {
+    public void checkGeneratorRun() throws IOException {
         Scanner in = new Scanner(System.in);
-        System.out.println("Введите <y> для запуска генератора файлов.");
+        System.out.println("Enter <y> to start the file generator.");
         String answer = in.nextLine();
         switch (answer) {
             case "y":
             case "у": {
                 fileGeneratorRun();
-                return true;
+                return;
             }
             default: {
-                System.out.println("Генерация выполнена не будет.");
-                return false;
+                System.out.println("Generation will be skipped.");
             }
         }
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Класс для объекта, хранящего результаты поиска числа.
+ * The class with a result of searching.
  */
 public class Result {
     private String code;
