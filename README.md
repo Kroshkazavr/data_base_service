@@ -1,4 +1,4 @@
-# test_for_junior
+# DataBase service
 Java 1.8 application containing the Result findNumber (Integer number) method returning a Result object.    
 The method searches the given number in 20 large text files of different compositions (each more than 1 GB).    
 Files consist only of numbers, which are separated by a comma.  
